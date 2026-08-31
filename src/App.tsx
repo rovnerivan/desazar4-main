@@ -6,12 +6,12 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
-import Manifesto from "./pages/Manifesto";
-import Lab from "./pages/Lab";
-import Systems from "./pages/Systems";
+import Nosotros from "./pages/Nosotros";
+import Servicios from "./pages/Servicios";
+import WebDetail from "./pages/WebDetail";
+import AutoDetail from "./pages/AutoDetail";
+import AppsDetail from "./pages/AppsDetail";
 import NotFound from "./pages/NotFound";
-import WebExperience from "./pages/WebExperience";
-import AutoExperience from "./pages/AutoExperience";
 import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
@@ -24,20 +24,24 @@ const App = () => (
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
-          {/* PAGINA 1: WORK (Home) */}
+          {/* HOME */}
           <Route path="/" element={<Index />} />
           
-          {/* PAGINA 2: MANIFIESTO */}
-          <Route path="/manifesto" element={<Manifesto />} />
+          {/* NOSOTROS (antes /manifesto) */}
+          <Route path="/nosotros" element={<Nosotros />} />
           
-          {/* PAGINA 3: LAB */}
-          <Route path="/lab" element={<Lab />} />
-          <Route path="/lab/web" element={<WebExperience />} />
-          <Route path="/lab/auto" element={<AutoExperience />} />
+          {/* SERVICIOS — Landing general */}
+          <Route path="/servicios" element={<Servicios />} />
+          
+          {/* DETALLES DE SERVICIO */}
+          <Route path="/servicios/web" element={<WebDetail />} />
+          <Route path="/servicios/auto" element={<AutoDetail />} />
+          <Route path="/servicios/apps" element={<AppsDetail />} />
 
-          {/* PAGINA 4: SYSTEMS */}
-          <Route path="/systems" element={<Systems />} />
-
+          {/* REDIRECCIÓN: lab → servicios, manifesto → nosotros */}
+          <Route path="/lab" element={<Index />} />
+          <Route path="/manifesto" element={<Nosotros />} />
+          
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
