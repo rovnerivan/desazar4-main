@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import trebolImage from '../../trebol.png';
 
 export const Hero = () => {
   return (
@@ -34,18 +33,9 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-center mb-6"
+          className="text-7xl md:text-[10rem] font-bold tracking-tighter leading-none mb-6"
         >
-          <div className="flex items-center justify-center gap-4 md:gap-6 mb-4">
-            <img
-              src={trebolImage}
-              alt=""
-              className="w-12 h-12 md:w-20 md:h-20 lg:w-28 lg:h-28 object-contain opacity-70"
-            />
-            <span className="text-6xl md:text-[9rem] font-bold tracking-tighter leading-none">
-              Des<span className="text-[#3b82f6] italic">Azar</span>
-            </span>
-          </div>
+          Des<span className="text-[#3b82f6] italic">Azar</span>
         </motion.h1>
 
         {/* Headline principal */}
